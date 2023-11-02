@@ -22,14 +22,14 @@ Future<List<WordResponse>?> getWordsFromDictionary(String query) async {
   }
 } on SocketException catch (e) {
 
-throw e;
+rethrow;
 
 } on HttpException catch (e) {
-  throw e;
+  rethrow;
 } on FormatException catch (e) {
 
 
-  throw e;
+  rethrow;
 }
 
 

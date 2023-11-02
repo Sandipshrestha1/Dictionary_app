@@ -4,55 +4,53 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   getDictionaryFormWidget(context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Spacer(),
-            Text(
-              "Dictionary App",
-              style: TextStyle(
-                color: Colors.deepOrangeAccent,
-                fontSize: 34,
-                fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          const Spacer(),
+          const Text(
+            "Dictionary App",
+            style: TextStyle(
+              color: Colors.deepOrangeAccent,
+              fontSize: 34,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const Text(
+            "Search any word you want quickely",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+            ),
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          TextField(
+            decoration: InputDecoration(
+              hintText: "Search a Word",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(4),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
+              filled: true,
+              fillColor: Colors.grey[100],
+              prefixIcon: const Icon(Icons.search),
+              // hintStyle: TextStyle(color: Colors.white),
             ),
-            Text(
-              "Search any word you want quickely",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-              ),
-            ),
-            SizedBox(
-              height: 32,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Search a Word",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(4),
-                  borderSide: BorderSide(color: Colors.transparent),
-                ),
-                filled: true,
-                fillColor: Colors.grey[100],
-                prefixIcon: Icon(Icons.search),
-                // hintStyle: TextStyle(color: Colors.white),
-              ),
-            ),
-            Spacer(),
-            Container(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrangeAccent,
-                      padding: const EdgeInsets.all(16)),
-                  child: const Text("SEARCH"),
-                )),
-          ],
-        ),
+          ),
+          const Spacer(),
+          SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepOrangeAccent,
+                    padding: const EdgeInsets.all(16)),
+                child: const Text("SEARCH"),
+              )),
+        ],
       ),
     );
   }
