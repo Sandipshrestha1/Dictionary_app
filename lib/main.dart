@@ -1,5 +1,9 @@
+import 'package:dictionary_app/repo/word_repo.dart';
 import 'package:dictionary_app/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'cubit/dictionary_cubit.dart';
 
 void main() {
   runApp(const DictionaryApp());
@@ -9,9 +13,13 @@ class DictionaryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const  MaterialApp(
+    return   MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: BlocProvider(
+        child: const HomeScreen(),
+        create: (context) => DictionaryCubit(WordRepository()),
+        
+        ),
 
     );
   }

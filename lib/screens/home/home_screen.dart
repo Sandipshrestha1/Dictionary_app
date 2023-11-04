@@ -1,10 +1,20 @@
+import 'package:dictionary_app/cubit/dictionary_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  getDictionaryFormWidget(context) {
-    return Padding(
+  getDictionaryFormWidget(BuildContext context) {
+
+final cubit = context.watch<DictionaryCubit>();
+
+
+
+    return 
+    
+    
+    Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
@@ -28,6 +38,10 @@ class HomeScreen extends StatelessWidget {
             height: 32,
           ),
           TextField(
+
+controller: cubit.queryController,
+
+
             decoration: InputDecoration(
               hintText: "Search a Word",
               border: OutlineInputBorder(
