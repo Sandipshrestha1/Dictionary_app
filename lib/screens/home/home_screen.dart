@@ -6,15 +6,9 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   getDictionaryFormWidget(BuildContext context) {
+    final cubit = context.watch<DictionaryCubit>();
 
-final cubit = context.watch<DictionaryCubit>();
-
-
-
-    return 
-    
-    
-    Padding(
+    return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
@@ -38,10 +32,7 @@ final cubit = context.watch<DictionaryCubit>();
             height: 32,
           ),
           TextField(
-
-controller: cubit.queryController,
-
-
+            controller: cubit.queryController,
             decoration: InputDecoration(
               hintText: "Search a Word",
               border: OutlineInputBorder(
@@ -58,7 +49,9 @@ controller: cubit.queryController,
           SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  cubit.getWOrdSearched();
+                },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepOrangeAccent,
                     padding: const EdgeInsets.all(16)),
@@ -69,11 +62,32 @@ controller: cubit.queryController,
     );
   }
 
+getLoadingWidget(){
+return const Center(child: CircularProgressIndicator());
+
+}
+getErrorWidget(message) {
+
+return Center(child: Text(message));
+
+
+}
+
   @override
   Widget build(BuildContext context) {
+
+final cubit = context.watch<DictionaryCubit>();
+
+
     return Scaffold(
       backgroundColor: Colors.blueGrey[900],
-      body: getDictionaryFormWidget(context),
+      body: cubit.state is WordSearchingState
+      ? getLoadingWidget()
+      : cubit.state is ErrorState ?
+      getErrorWidget("Some Error") : cubit.state is NoWordSearchedState ? 
+      
+      
+      getDictionaryFormWidget(context) : Container()
     );
   }
 }
