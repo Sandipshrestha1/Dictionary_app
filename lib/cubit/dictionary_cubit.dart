@@ -18,6 +18,12 @@ class DictionaryCubit extends Cubit<DictionaryState> {
   if (words == null) {
     emit(ErrorState());
   } else {
+
+//  This is  writter to check data in console
+print(words.toString());
+emit(WordSearchedState(words));
+//
+
     WordSearchedState(words);
   }
 } on Exception catch (e) {
