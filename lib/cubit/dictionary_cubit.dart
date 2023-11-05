@@ -22,9 +22,11 @@ class DictionaryCubit extends Cubit<DictionaryState> {
 //  This is  writter to check data in console
 print(words.toString());
 emit(WordSearchedState(words));
-//
 
-    WordSearchedState(words);
+emit(NoWordSearchedState());
+
+
+   // WordSearchedState(words);
   }
 } on Exception catch (e) {
 
