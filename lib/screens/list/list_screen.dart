@@ -12,6 +12,8 @@ class ListScreen extends StatelessWidget {
     return Scaffold(
         body: ListView.separated(
       itemBuilder: (context, index) => ListTile(),
+      separatorBuilder: (context, index) => Divider(color: Colors.grey,),
+      itemCount: words.length,
 
     ),);
   }
