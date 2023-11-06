@@ -30,11 +30,12 @@ child: ListView.separated(
 crossAxisAlignment: CrossAxisAlignment.start,
 
 children: [
-  Text(meaning.partOfSpeech, style: TextStyle(color: Colors.white),),
-  SizedBox(height: 8,),
-  ListView.separated(itemBuilder: (context, index) => Column(children: [
+  Text(meaning.partOfSpeech, style:const  TextStyle(color: Colors.white),),
+const   SizedBox(height: 8,),
+  ListView.separated(itemBuilder: (context, index) => Column(
+    children: [
 Text("Defination: " + definations[index].defination),
-SizedBox(height: 4,),
+ const SizedBox(height: 4,),
 Text("Sentence:  ${definations[index].example}") ,  
   ],
   crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +52,7 @@ Text("Sentence:  ${definations[index].example}") ,
 
 
 }, itemCount: wordResponse.meanings.length,
-separatorBuilder: (context, index) => SizedBox(height: 32,), )
+separatorBuilder: (context, index) => const SizedBox(height: 32,), )
 
 
 
